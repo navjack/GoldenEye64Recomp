@@ -15,12 +15,16 @@
 #define SDL_MAIN_HANDLED
 #ifdef _WIN32
 #include "SDL.h"
+#elif defined(__APPLE__)
+// Homebrew puts the SDL2 header directory itself on the include path, so the
+// unprefixed form is correct here; an SDL2/-prefixed path can instead pick up a
+// stale Intel SDL2 left in /usr/local.
+#include "SDL.h"
+#include "SDL_syswm.h"
+#include "SDL_metal.h"
 #else
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_syswm.h"
-#ifdef __APPLE__
-#include "SDL2/SDL_metal.h"
-#endif
 #endif
 
 #include "recomp_ui.h"

@@ -4,7 +4,7 @@
 
 #include <fstream>
 #include <filesystem>
-#ifdef _WIN32
+#if defined(_WIN32) || defined(__APPLE__)
 #include <SDL_video.h>
 #else
 #include <SDL2/SDL_video.h>
